@@ -1,0 +1,33 @@
+<div>
+  <button md-fab (click)="openDialog()" class="margin-button"><md-icon>add</md-icon></button>
+  <button md-fab (click)="stopSelect()" *ngIf="selecting" class="margin-button"><md-icon>close</md-icon></button>
+</div>
+<div *ngFor="let unicorn of unicorns" class="cards">
+  <md-card class="params-card">
+    <md-card-header>
+      <md-card-title>
+        <div>
+          {{ unicorn.name }}
+          <div style="float: right;">
+            <img class="icon" src="./../../assets/Icones/Man.png" *ngIf="unicorn.gender === 'Male'">
+            <img class="icon" src="./../../assets/Icones/Woman.png" *ngIf="unicorn.gender === 'Female'">
+            <md-icon *ngIf="unicorn.gender === 'Other'">accessible</md-icon>
+            <md-icon *ngIf="unicorn.mate">wc</md-icon>
+          </div>
+        </div>
+      </md-card-title>
+      <md-card-subtitle>
+        <div>
+          {{ unicorn.age | date:'medium'}}
+          {{ unicorn.color }}
+        </div>
+      </md-card-subtitle>
+    </md-card-header>
+    <img md-card-image [src]=unicorn.src>
+    <md-card-actions>
+      <button (click)="findMate(unicorn.id)" *ngIf="!unicorn.mate && !selecting" md-raised-button>FIND MATE</button>
+      <button (click)="selectMate(unicorn.id)" *ngIf="selecting && tmp != unicorn.id && !unicorn.mate" md-raised-button>LOVE</button>
+      <button (click)="doBaby(unicorn.id, unicorn.mate)" *ngIf="unicorn.mate && !selecting && checkMate(unicorn.id, unicorn.mate)" md-raised-button>DO BABY</button>
+    </md-card-actions>
+  </md-card>
+</div>

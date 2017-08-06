@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Unicorn } from './Models/unicorn';
+import { MdDialog} from '@angular/material';
+import { DialogComponent } from './Dialog/dialog.component';
 
 @Component({
   selector: 'app-root',

@@ -1,0 +1,21 @@
+.params-card {
+  width: 215px;
+  margin-left: 0.5%;
+  margin-right:0.5%;
+  margin-bottom:1%;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.cards {
+  display: inline-block;
+}
+
+.margin-button {
+  margin-left: 0.5%;
+  margin-right:0.5%;
+  margin-bottom:1%;
+}

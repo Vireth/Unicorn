@@ -1,0 +1,29 @@
+<form [formGroup]="myForm" (ngSubmit)="save()">
+  <md-input-container>
+    <input mdInput placeholder="Name" formControlName="name">
+  </md-input-container>
+  <br>
+  <md-radio-group formControlName="gender">
+    <md-radio-button value="Male">Male</md-radio-button>
+    <md-radio-button value="Female">Female</md-radio-button>
+    <md-radio-button value="Other">Other</md-radio-button>
+  </md-radio-group>
+  <br>
+  <md-select class="margin-button" *ngIf="myForm.value.gender === 'Female'" placeholder="Color" formControlName="color">
+    <md-option *ngFor="let color of colorsF" [value]="color.value">
+      {{color.viewValue}}
+    </md-option>
+  </md-select>
+  <md-select class="margin-button" *ngIf="myForm.value.gender === 'Male'" placeholder="Color" formControlName="color">
+    <md-option *ngFor="let color of colorsM" [value]="color.value">
+      {{color.viewValue}}
+    </md-option>
+  </md-select>
+  <md-select class="margin-button" *ngIf="myForm.value.gender === 'Other'" placeholder="Color" formControlName="color">
+    <md-option *ngFor="let color of colors" [value]="color.value">
+      {{color.viewValue}}
+    </md-option>
+  </md-select>
+  <br>
+  <button md-raised-button [disabled]="!myForm.valid">Submit</button>
+</form>
